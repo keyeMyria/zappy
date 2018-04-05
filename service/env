@@ -1,0 +1,11 @@
+DJANGO_SETTINGS_MODULE=conf.settings.production
+DJANGO_SECRET_KEY=<your-super-secret-key>
+DJANGO_DEBUG=False
+DJANGO_ALLOWED_HOSTS=<your-allowed-hosts-list>
+
+MONGO_URI=<your-mongodb-uri>
+MONGO_DATABASE_NAME=<default-database-name>
+
+TWITTER_CONSUMER_KEY=<your-twitter-app-consumer-key>
+TWITTER_CONSUMER_SECRET=<your-twitter-consumer-secret>
+MAX_TWEETS_COUNT=<default-number-of-tweets-to-retrive>

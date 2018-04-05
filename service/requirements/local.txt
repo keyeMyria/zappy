@@ -1,0 +1,4 @@
+-r commont.txt
+
+ptpython==0.41
+django-extensions==2.0.6
