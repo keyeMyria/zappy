@@ -4,3 +4,6 @@ pymongo==3.6.1
 celery[redis]==4.1.0
 django-environ==0.4.4
 djangorestframework==3.7.7
+mongoengine==0.15.0
+git+git://github.com/MongoEngine/django-mongoengine.git
+
