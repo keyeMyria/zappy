@@ -20,9 +20,12 @@ def update_twitter_feed(handle, count=settings.MAX_TWEETS_COUNT):
     feed = Feed()
 
     # returns latest entry in feed collection as it should be indexed using tweet id.
-    most_recent = feed.objects.find_one(sort=[('id', -1)])['id']
-    
-    data = twitter.get_feed(handle, since_id=most_recent, count=count)
+    most_recent = feed.objects.find_one(filter={'handle': handle}, sort=[('id', -1)])
+    if most_recent:
+        data = twitter.get_feed(handle, since_id=most_recent['id'], count=count)
+    else:
+        data = twitter.get_feed(handle, count=count)
+
     try:
         if data:
             inserted = feed.save(data, many=True)
