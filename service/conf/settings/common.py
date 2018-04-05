@@ -12,10 +12,12 @@ BASE_DIR = environ.Path(__file__) - 3
 
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=[])
+
+
+# Database Related
 MONGO_URI = env('MONGO_URI', default="mongodb://localhost:27017/")
 DBNAME = env('MONGO_DATABASE_NAME', default="twitter")
-
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=[])
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='_y=vx5zc8$1@t%#8qq&6nq#q$hdkoixcqlq!f*-2$98@zrvkoh')
 
@@ -23,6 +25,16 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='_y=vx5zc8$1@t%#8qq&6nq#q$hdkoixcq
 MONGO = pymongo.MongoClient(MONGO_URI)
 DB = MONGO[DBNAME]
 
+# for use with sessions and auth
+MONGODB_DATABASES = {
+    "default": {
+        "name": env('DEFAULT_MONGO_DB', default='dajngo_default'),
+        "host": MONGO_URI,
+    }
+}
+
+
+# Installed apps settings
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,6 +45,7 @@ DJANGO_APPS = [
 
 THIRDPARTY_APPS = [
     'rest_framework',
+    'django_mongoengine',
 ]
 
 PROJECT_APPS = [
@@ -41,6 +54,8 @@ PROJECT_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + THIRDPARTY_APPS + PROJECT_APPS
 
+
+# middleware and backends
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,11 +66,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SESSION_ENGINE = 'django_mongoengine.sessions'
+SESSION_SERIALIZER = 'django_mongoengine.sessions.BSONSerializer'
+
+
+# twitter app related
 TWITTER_CONSUMER_KEY = env('TWITTER_CONSUMER_KEY')
 TWITTER_CONSUMER_SECRET = env('TWITTER_CONSUMER_SECRET')
 MAX_TWEETS_COUNT = env.int('MAX_TWEETS_COUNT', default=200)
 
+# Celery background tasks config
 CELERY_BROKER_URL = env('CELERY_REDIS_BROKER', default='redis://localhost:6379/0')
+
 
 ROOT_URLCONF = 'conf.urls'
 

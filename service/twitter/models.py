@@ -60,7 +60,7 @@ class Feed(BaseModel):
         '''
         user = data.get('user', None)
         if user:
-            data['handle'] = user['screen_name']
+            data['handle'] = user['screen_name'].lower()
 
         return data
 
