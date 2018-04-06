@@ -12,7 +12,7 @@ services:
       - zappy_net
   
   django:
-    image: zappy_service
+    image: mxahmed/zappy_service:latest
     ports:
       - 5000:5000
     depends_on:
@@ -30,7 +30,7 @@ services:
       - zappy_net
 
   celery:
-    image: zappy_service
+    image: mxahmed/zappy_service:latest
     env_file: service/env
     depends_on:
       - redis
