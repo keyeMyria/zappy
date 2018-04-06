@@ -40,12 +40,15 @@ class TwitterFeedViewSet(viewsets.ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     @action(methods=['post'], detail=False)
-    def fetch(self, request):
+    def go_fetch(self, request):
         '''
           fetch twitter user timeline in a background task
           mainly used as a slack command endpoint.
         '''
         serializer = FeedFetchActionSerializer(data=request.data)
-        serializer.save()
-
-        return Response(status=status.HTTP_200_OK)
+        
+        if serializer.is_valid():
+            serializer.save()        
+            return Response(status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

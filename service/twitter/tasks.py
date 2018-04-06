@@ -33,4 +33,4 @@ def update_twitter_feed(handle, count=settings.MAX_TWEETS_COUNT):
     except pymongo.errors.BulkWriteError as e:
         logger.warning("Faild to save feed, faild bulk operations {}".format(e.details))
 
-    return data
+    return 'done'

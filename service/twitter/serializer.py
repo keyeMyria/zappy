@@ -28,7 +28,9 @@ class FeedFetchActionSerializer(serializers.Serializer):
     count = serializers.IntegerField(required=False)
     
     def save(self):
-        if self.is_valid():
-            handle = self.validated_data['handle']
-            count = self.validated_data['count']
+        handle = self.validated_data['handle']
+        count = self.validated_data.get('count')
+        if count:
             update_twitter_feed.delay(handle, count)
+        else:
+            update_twitter_feed.delay(handle)

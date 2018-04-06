@@ -34,7 +34,7 @@ class BaseModel:
                            to specifiy if data inserted in aribitary order and fail
                            on the first insert failiar
             returns:
-                - a list or single instance of ObjectId
+                - a an instance of pymongo InsertResult
         '''
         try:
             if many and isinstance(data, list):
