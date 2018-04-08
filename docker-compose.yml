@@ -38,6 +38,15 @@ services:
     command: celery -A conf.celery_app worker --loglevel=info
     networks:
       - zappy_net
+  
+  web:
+    image: mxahmed/zappy_front:latest
+    depends_on:
+      - django
+    ports:
+      - 3000:80
+    networks:
+      - zappy_net
 
 networks:
   zappy_net:

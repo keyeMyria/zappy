@@ -34,8 +34,18 @@ the previous steps will pull the needed images from docker hub.
 You can also build the needed images locally using both the frontend and service docker files.
 
 if so you'll need to change the image names in docker-compose.yml to the image names you choose,
-for the ```django``` and ```celery``` services
+for the ```django``` and ```celery``` ```web``` services
 
+##### building the frontend image
+the docker image for the web service is a simple nginx server that serves static files
+from the build artifacts [ dist ], so you will need to build the app before building the image
+
+you can specifiy the ```baseUrl``` for the api in the environments/environment.prod.ts file
+before building.
+
+```
+$ ng build -prod
+```
 
 ### Using virtualenv and ng serve
 
@@ -66,8 +76,12 @@ $ celery -A conf.celery_app worker --loglevel=debug
 
 ##### Second Running the frontend app
 
-**this is still not finished yet.
+After installing the needed packages
 
+```
+$ npm install
+$ ng serve
+```
 
 ## Settings:
 
