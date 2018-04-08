@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    overflow: hidden;
+    height: 100%;
+    background-color: #f8f9fa;
+}
+
+h1, h2, h5, p {
+    color: #6f6f6f;
+    font-family: sans;
+    font-weight: lighter;
+}
+
+.logo {
+    margin-left: 50px;
+}
+
+.logo-text {
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    vertical-align: middle;
+    padding-top: 6px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: -20px;
+}

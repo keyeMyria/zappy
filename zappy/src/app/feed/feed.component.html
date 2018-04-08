@@ -1,0 +1,53 @@
+<section class="feed"> 
+  <div class="row feed-header">
+    <div class="col-md-4">
+      <h2>Twitter Feed</h2>
+    </div>
+    <div class="col-md-4">
+      <div *ngIf="message" class="message text-center">
+        {{ message }}
+      </div>
+    </div>
+    <div class="col-md-4">
+     <form>
+      <div class="input-group">
+        <input [(ngModel)]="username"  name="username" class="form-control text-center" type="text" placeholder="username" required>
+        <input [(ngModel)]="count" name="count" class="form-control text-center" type="text" placeholder="count">
+	<div class="input-group-append">
+	  <button (click)="goFetch()" class="btn btn-dark go-fetch">Go Fetch</button> 
+        </div>
+      </div>
+     </form>
+    </div>
+  </div>
+  <div class="row filters">
+   <div class="col-md-8">
+     <input (keyup)="withUsername($event)" class="form-control text-center d-inline-block" type="text" placeholder="filter with username">
+   </div>
+   <div class="col-md-4">
+     <button (click)="getFeed()" class="btn btn-dark go-fetch d-inline-block">Refresh Feed</button>
+   </div>
+  </div>
+  <div class="row">
+    <div class="feed-body col-12">
+      <div *ngFor="let tweet of feed" class="tweet">
+        <div class="tweet-body">
+  	  text: <p>{{ tweet.text }}</p>
+	  username:<h5>{{ tweet.handle }}</h5>
+	</div>
+	<div class="tweet-info text-right">
+  	  <span class="badge badge-primary d-inline-block">
+    	    <i class="fas fa-clock fa-lg"> {{ tweet.created_at | date:'medium' | lowercase }}</i>
+  	  </span>
+  	  <span class="badge badge-primary d-inline-block">
+    	    <i class="fas fa-retweet fa-lg"> {{ tweet.retweet_count }}</i>
+  	  </span>
+  	  <span class="badge badge-primary d-inline-block">
+    	    <i class="fas fa-star fa-lg"> {{ tweet.favorite_count }}</i>
+  	  </span>
+	</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 

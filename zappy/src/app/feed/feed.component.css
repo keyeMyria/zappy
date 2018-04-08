@@ -1,0 +1,90 @@
+.feed {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.feed-header {
+    border-width: 1px;
+    border-color: #e4e4e4;
+    border-bottom-style: solid;
+}
+
+.feed-body {
+    padding: 50px;
+    padding-top: 0px;
+    overflow-y: auto;
+    height: 480px;
+}
+
+.card-columns {
+    column-count: 1;
+}
+
+input[text], button {
+    color: #888;
+    font-family: Cambria, Georgia;
+}
+
+.tweet {
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: .25rem;
+    box-sizing: border-box;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    background-color: #fff;
+}
+
+.tweet-body {
+    padding: 1.5rem;
+}
+
+.tweet-info {
+    padding: 1rem;
+    padding-bottom: .5rem;
+    border-width: 1px;
+    border-color: #e4e4e4;
+    border-top-style: solid;
+}
+
+.filters {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 250px;
+    padding-right: 250px;
+    display: flex;
+}
+.badge {
+    padding: .5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background-color: #6fb1f8;
+    font-weight: lighter;
+}
+
+.btn:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+.go-fetch {
+    color: #fff;
+    background-color: #f15d43;
+    border: 1px solid transparent;
+}
+
+.message {
+    padding: .5rem;
+    color: #fff;
+    background-color: #f15d43;
+}
