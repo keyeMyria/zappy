@@ -1,11 +1,17 @@
 DJANGO_SETTINGS_MODULE=conf.settings.production
-DJANGO_SECRET_KEY=<your-super-secret-key>
-DJANGO_DEBUG=False
-DJANGO_ALLOWED_HOSTS=<your-allowed-hosts-list>
+DJANGO_SECRET_KEY='_y=vx5zc8$1@t%#8qq&6nq#q$hdkoixcqlq!f*-2$98@zrvkoh'
+DJANGO_DEBUG=True
+DJANGO_ALLOWED_HOSTS=127.0.0.1
 
-MONGO_URI=<your-mongodb-uri>
-MONGO_DATABASE_NAME=<default-database-name>
+DJANGO_CORS_ORIGIN_ALLOW_ALL=True
+DJANGO_CORS_ALLOW_CREDENTIALS=True
 
-TWITTER_CONSUMER_KEY=<your-twitter-app-consumer-key>
-TWITTER_CONSUMER_SECRET=<your-twitter-consumer-secret>
-MAX_TWEETS_COUNT=<default-number-of-tweets-to-retrive>
+
+MONGO_URI=mongodb://mongodb:27017/
+MONGO_DATABASE_NAME=twitter
+
+CELERY_REDIS_BROKER=redis://redis:6379/0
+
+TWITTER_CONSUMER_KEY=f5bnh3iK1nxTU91uLNsIj1Yp2
+TWITTER_CONSUMER_SECRET=T8bUWapNMEuDEqcqIxbbVwoVUDQR1vJGSLRj4a4EDqEko96Ylm
+MAX_TWEETS_COUNT=200
