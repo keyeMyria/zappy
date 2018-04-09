@@ -34,7 +34,14 @@ the previous steps will pull the needed images from docker hub.
 You can also build the needed images locally using both the frontend and service docker files.
 
 if so you'll need to change the image names in docker-compose.yml to the image names you choose,
-for the ```django``` and ```celery``` ```web``` services
+for the ```django```,```celery``` and ```web``` services.
+
+**
+don't forget to setup the needed environment variables
+check the settings section for more info.
+**
+
+
 
 ##### building the frontend image
 the docker image for the web service is a simple nginx server that serves static files
@@ -92,6 +99,9 @@ DJANGO_SETTINGS_MODULE=conf.settings.production
 DJANGO_SECRET_KEY=<your-django-secret-key>
 DJANGO_DEBUG=False
 DJANGO_ALLOWED_HOSTS=<your-allowed-hosts-list>
+
+DJANGO_CORS_ORIGIN_ALLOW_ALL=True
+DJANGO_CORS_ALLOW_CREDENTIALS=True
 
 MONGO_URI=mongodb://mongodb:27017/
 MONGO_DATABASE_NAME=twitter
