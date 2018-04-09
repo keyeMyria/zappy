@@ -116,6 +116,4 @@ MAX_TWEETS_COUNT=200
 the ```TWITTER_CONSUMER_KEY``` and ```TWITTER_CONSUMER_SECRET``` env variables are required
 all other variables will take a default value if not specified
 
-### Notes:
-this project was a test task for an interview process, so don't take seriously.
 
